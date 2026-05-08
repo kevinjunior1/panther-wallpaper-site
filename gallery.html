@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Panther Wallpapers</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-header h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .gallery-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .overlay-title {
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .overlay-info {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+        }
+        
+        .download-overlay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .download-overlay {
+            opacity: 1;
+        }
+        
+        .download-overlay:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .nature { background: linear-gradient(45deg, #56ab2f, #a8e063); }
+        .abstract { background: linear-gradient(45deg, #667eea, #764ba2); }
+        .city { background: linear-gradient(45deg, #f2994a, #f2c94c); }
+        .space { background: linear-gradient(45deg, #0f0c29, #302b63, #24243e); }
+        .ocean { background: linear-gradient(45deg, #2193b0, #6dd5ed); }
+        .mountain { background: linear-gradient(45deg, #8e9eab, #eef2f3); }
+        .sunset { background: linear-gradient(45deg, #ff6b6b, #feca57); }
+        .forest { background: linear-gradient(45deg, #134e5e, #71b280); }
+        
+        .load-more {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .load-more-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .load-more-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stats-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">    
+       <img src="pantherlogo.png" height="150" width="150" alt="Panther Wallpapers Logo">
+    </div>
+    <h1>Wallpaper Gallery</h1>
+</header>
+<nav>
+    <div class="nav-container">
+        <button><a href="index.html">Home</a></button>
+        <button><a href="about.html">About</a></button> 
+        <button><a href="contact.html">Contact</a></button> 
+        <button><a href="live-background.html">Live Background</a></button> 
+        <button><a href="anime.html">Anime</a></button> 
+        <button><a href="gallery.html">Gallery</a></button> 
+    </div>
+</nav>
+<main>
+    <section class="gallery-section">
+        <div class="gallery-header">
+            <h2>🎨 Complete Wallpaper Collection</h2>
+            <p>Browse through our extensive gallery of high-quality wallpapers organized by category</p>
+        </div>
+        
+        <div class="gallery-filters">
+            <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+            <button class="filter-btn" onclick="filterGallery('nature')">Nature</button>
+            <button class="filter-btn" onclick="filterGallery('abstract')">Abstract</button>
+            <button class="filter-btn" onclick="filterGallery('city')">City</button>
+            <button class="filter-btn" onclick="filterGallery('cars')">Cars</button>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="nature forest">
+                <div class="gallery-image forest">🌲</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Deep Forest</div>
+                    <div class="overlay-info">4K • Nature • Forest</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="abstract">
+                <div class="gallery-image abstract">🎨</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Abstract Art</div>
+                    <div class="overlay-info">HD • Abstract • Colorful</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="city">
+                <div class="gallery-image city">🏙️</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">City Lights</div>
+                    <div class="overlay-info">4K • City • Night</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="space">
+                <div class="gallery-image space">🌌</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Galaxy</div>
+                    <div class="overlay-info">4K • Space • Stars</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="ocean">
+                <div class="gallery-image ocean">🌊</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Ocean Waves</div>
+                    <div class="overlay-info">HD • Ocean • Blue</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="mountain">
+                <div class="gallery-image mountain">⛰️</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Mountain Peak</div>
+                    <div class="overlay-info">4K • Mountain • Snow</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="sunset">
+                <div class="gallery-image sunset">🌅</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Golden Sunset</div>
+                    <div class="overlay-info">HD • Sunset • Warm</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="nature">
+                <div class="gallery-image nature">🌿</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Green Nature</div>
+                    <div class="overlay-info">4K • Nature • Green</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="space abstract">
+                <div class="gallery-image space">🪐</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Planet View</div>
+                    <div class="overlay-info">HD • Space • Abstract</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="city sunset">
+                <div class="gallery-image city">🌆</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">City Sunset</div>
+                    <div class="overlay-info">4K • City • Sunset</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="ocean nature">
+                <div class="gallery-image ocean">🏖️</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Beach Paradise</div>
+                    <div class="overlay-info">HD • Ocean • Beach</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+            
+            <div class="gallery-item" data-category="mountain nature">
+                <div class="gallery-image mountain">🏔️</div>
+                <div class="gallery-overlay">
+                    <div class="overlay-title">Alpine Lake</div>
+                    <div class="overlay-info">4K • Mountain • Lake</div>
+                </div>
+                <button class="download-overlay">↓</button>
+            </div>
+        </div>
+        
+        <div class="load-more">
+            <button class="load-more-btn" onclick="loadMore()">Load More Wallpapers</button>
+        </div>
+        
+        <div class="stats-section">
+            <h3 style="color: white; margin-bottom: 20px;">Gallery Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Total Wallpapers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4K</div>
+                    <div class="stat-label">Max Resolution</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Updates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2026 Panther Wallpapers. All rights reserved.</p>
+    <p><a href="https://www.instagram.com/kevin_berthrand" target="_blank">Follow me on Instagram</a></p>
+</footer>
+
+<script>
+function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filter items using real wallpaper manager
+    if (window.realWallpaperManager) {
+        const filteredWallpapers = window.realWallpaperManager.getWallpapersByCategory(category);
+        const galleryGrid = document.querySelector('.gallery-grid');
+        
+        // Clear and repopulate with filtered wallpapers
+        galleryGrid.innerHTML = '';
+        filteredWallpapers.forEach(wallpaper => {
+            const galleryItem = window.realWallpaperManager.createGalleryItem(wallpaper);
+            galleryGrid.appendChild(galleryItem);
+        });
+    } else {
+        // Fallback to basic filtering
+        items.forEach(item => {
+            if (category === 'all' || item.dataset.category.includes(category)) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                }, 100);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+    }
+}
+
+function loadMore() {
+    const grid = document.querySelector('.gallery-grid');
+    const newItems = [
+        { category: 'abstract', emoji: '🔮', title: 'Crystal Magic', info: 'HD • Abstract • Magic' },
+        { category: 'nature', emoji: '🦋', title: 'Butterfly Garden', info: '4K • Nature • Wildlife' },
+        { category: 'space', emoji: '🌠', title: 'Shooting Star', info: 'HD • Space • Meteor' },
+        { category: 'city', emoji: '🌃', title: 'Night City', info: '4K • City • Lights' },
+        { category: 'ocean', emoji: '🐠', title: 'Coral Reef', info: 'HD • Ocean • Marine' },
+        { category: 'mountain', emoji: '🏕️', title: 'Mountain Camp', info: '4K • Mountain • Camping' }
+    ];
+    
+    newItems.forEach(item => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.dataset.category = item.category;
+        galleryItem.innerHTML = `
+            <div class="gallery-image ${item.category}">${item.emoji}</div>
+            <div class="gallery-overlay">
+                <div class="overlay-title">${item.title}</div>
+                <div class="overlay-info">${item.info}</div>
+            </div>
+            <button class="download-overlay">↓</button>
+        `;
+        grid.appendChild(galleryItem);
+    });
+    
+    // Add download functionality to new items
+    document.querySelectorAll('.download-overlay').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const item = this.closest('.gallery-item');
+            const title = item.querySelector('.overlay-title').textContent;
+            alert(`Downloading "${title}" wallpaper...`);
+        });
+    });
+    
+    alert('6 new wallpapers loaded!');
+}
+
+// Add download functionality
+document.querySelectorAll('.download-overlay').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const item = this.closest('.gallery-item');
+        const title = item.querySelector('.overlay-title').textContent;
+        alert(`Downloading "${title}" wallpaper...`);
+    });
+});
+
+// Add click functionality to gallery items
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const title = this.querySelector('.overlay-title').textContent;
+        alert(`Viewing "${title}" in full screen...`);
+    });
+});
+</script>
+<script src="real-wallpapers.js"></script>
+</body>
+</html>

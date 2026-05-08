@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Wallpapers - Panther Wallpapers</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .anime-hero {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .anime-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .anime-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+        
+        .anime-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .anime-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .anime-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+        
+        .anime-info {
+            padding: 20px;
+            color: white;
+        }
+        
+        .anime-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .anime-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .anime-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+            transform: scale(1.05);
+        }
+        
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.05);
+        }
+        
+        .shonen { background: linear-gradient(45deg, #ff6b6b, #feca57); }
+        .shojo { background: linear-gradient(45deg, #ff9ff3, #feca57); }
+        .seinen { background: linear-gradient(45deg, #48dbfb, #0abde3); }
+        .mecha { background: linear-gradient(45deg, #00d2d3, #54a0ff); }
+        .fantasy { background: linear-gradient(45deg, #a29bfe, #6c5ce7); }
+        .action { background: linear-gradient(45deg, #ff6348, #ff9ff3); }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">    
+       <img src="pantherlogo.png" height="150" width="150" alt="Panther Wallpapers Logo">
+    </div>
+    <h1>Anime Wallpapers Collection</h1>
+</header>
+<nav>
+    <div class="nav-container">
+        <button><a href="index.html">Home</a></button>
+        <button><a href="about.html">About</a></button> 
+        <button><a href="contact.html">Contact</a></button> 
+        <button><a href="live-background.html">Live Background</a></button> 
+        <button><a href="anime.html">Anime</a></button> 
+        <button><a href="gallery.html">Gallery</a></button> 
+    </div>
+</nav>
+<main>
+    <section class="anime-section">
+        <div class="anime-hero">
+            <h2>🌸 Anime Wallpapers Paradise 🌸</h2>
+            <p>Explore our extensive collection of high-quality anime wallpapers from your favorite series and characters</p>
+        </div>
+        
+        <div class="category-filter">
+            <button class="filter-btn active" onclick="filterAnime('all')">All</button>
+            <button class="filter-btn" onclick="filterAnime('shonen')">Shonen</button>
+            <button class="filter-btn" onclick="filterAnime('shojo')">Shojo</button>
+            <button class="filter-btn" onclick="filterAnime('seinen')">Seinen</button>
+            <button class="filter-btn" onclick="filterAnime('mecha')">Mecha</button>
+            <button class="filter-btn" onclick="filterAnime('fantasy')">Fantasy</button>
+            <button class="filter-btn" onclick="filterAnime('action')">Action</button>
+        </div>
+        
+        <div class="anime-grid">
+            <div class="anime-card" data-category="action shonen">
+                <div class="anime-image action">
+                    <img src="kevin (11).jpg" alt="Epic Battle Scene" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                </div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Epic Battle Scene</h3>
+                    <p class="anime-description">Intense combat moments from legendary anime series</p>
+                    <div class="anime-tags">
+                        <span class="tag">Action</span>
+                        <span class="tag">Shonen</span>
+                        <span class="tag">4K</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+            
+            <div class="anime-card" data-category="shojo fantasy">
+                <div class="anime-image shojo">
+                    <img src="kevin (10).jpg" alt="Cherry Blossom Romance" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                </div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Cherry Blossom Romance</h3>
+                    <p class="anime-description">Beautiful romantic moments under sakura trees</p>
+                    <div class="anime-tags">
+                        <span class="tag">Shojo</span>
+                        <span class="tag">Romance</span>
+                        <span class="tag">HD</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+            
+            <div class="anime-card" data-category="mecha action">
+                <div class="anime-image mecha">🤖</div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Mecha Warriors</h3>
+                    <p class="anime-description">Powerful mecha suits in epic battles</p>
+                    <div class="anime-tags">
+                        <span class="tag">Mecha</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">4K</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+            
+            <div class="anime-card" data-category="fantasy seinen">
+                <div class="anime-image fantasy">🐉</div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Fantasy Adventure</h3>
+                    <p class="anime-description">Magical worlds with dragons and wizards</p>
+                    <div class="anime-tags">
+                        <span class="tag">Fantasy</span>
+                        <span class="tag">Seinen</span>
+                        <span class="tag">HD</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+            
+            <div class="anime-card" data-category="shonen action">
+                <div class="anime-image shonen">🔥</div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Fire Power</h3>
+                    <p class="anime-description">Explosive fire abilities and intense training</p>
+                    <div class="anime-tags">
+                        <span class="tag">Shonen</span>
+                        <span class="tag">Power</span>
+                        <span class="tag">4K</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+            
+            <div class="anime-card" data-category="seinen action">
+                <div class="anime-image seinen">🌙</div>
+                <div class="anime-info">
+                    <h3 class="anime-title">Night Warriors</h3>
+                    <p class="anime-description">Dark and intense battles under moonlight</p>
+                    <div class="anime-tags">
+                        <span class="tag">Seinen</span>
+                        <span class="tag">Dark</span>
+                        <span class="tag">HD</span>
+                    </div>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-section">
+            <h3>Why Choose Our Anime Wallpapers?</h3>
+            <div class="features">
+                <div class="feature-item">
+                    <h4>🎯 Curated Collection</h4>
+                    <p>Hand-picked wallpapers from popular and classic anime series</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📱 All Resolutions</h4>
+                    <p>Available in phone, tablet, and desktop resolutions</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🔄 Regular Updates</h4>
+                    <p>New wallpapers added weekly from the latest anime releases</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎨 High Quality</h4>
+                    <p>Crystal clear images optimized for any screen size</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2026 Panther Wallpapers. All rights reserved.</p>
+    <p><a href="https://www.instagram.com/kevin_berthrand" target="_blank">Follow me on Instagram</a></p>
+</footer>
+
+<script>
+function filterAnime(category) {
+    const cards = document.querySelectorAll('.anime-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Filter cards
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category.includes(category)) {
+            card.style.display = 'block';
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'scale(1)';
+            }, 100);
+        } else {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.8)';
+            setTimeout(() => {
+                card.style.display = 'none';
+            }, 300);
+        }
+    });
+}
+
+// Add download functionality
+document.querySelectorAll('.download-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = this.closest('.anime-card');
+        const img = card.querySelector('img');
+        if (img && img.src) {
+            // Open image in new tab
+            window.open(img.src, '_blank');
+            // Show notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                font-weight: bold;
+                z-index: 10000;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = 'Image opened - Right-click to save';
+            document.body.appendChild(notification);
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+    });
+});
+
+// Add smooth transitions
+document.querySelectorAll('.anime-card').forEach(card => {
+    card.style.transition = 'all 0.3s ease';
+});
+</script>
+<script src="real-wallpapers.js"></script>
+</body>
+</html>
