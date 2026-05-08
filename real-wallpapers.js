@@ -29,7 +29,7 @@ class RealWallpaperManager {
                 resolution: 'HD',
                 description: 'Artistic photography by Josiah Reed'
             },
-            // Kevin wallpaper series
+            // Kevin wallpaper series - JFIF versions
             {
                 id: 'kevin-1',
                 name: 'Kevin Collection 1',
@@ -78,10 +78,10 @@ class RealWallpaperManager {
                 resolution: 'HD',
                 description: 'City life and architecture'
             },
-            // JPG versions
+            // JPG versions - Kevin series
             {
                 id: 'kevin-1-jpg',
-                name: 'Kevin Collection 1',
+                name: 'Kevin Collection 1 (JPG)',
                 filename: 'kevin (1).jpg',
                 category: 'nature',
                 resolution: 'HD',
@@ -89,7 +89,7 @@ class RealWallpaperManager {
             },
             {
                 id: 'kevin-2-jpg',
-                name: 'Kevin Collection 2',
+                name: 'Kevin Collection 2 (JPG)',
                 filename: 'kevin (2).jpg',
                 category: 'city',
                 resolution: 'HD',
@@ -97,7 +97,7 @@ class RealWallpaperManager {
             },
             {
                 id: 'kevin-3-jpg',
-                name: 'Kevin Collection 3',
+                name: 'Kevin Collection 3 (JPG)',
                 filename: 'kevin (3).jpg',
                 category: 'nature',
                 resolution: 'HD',
@@ -105,7 +105,7 @@ class RealWallpaperManager {
             },
             {
                 id: 'kevin-4-jpg',
-                name: 'Kevin Collection 4',
+                name: 'Kevin Collection 4 (JPG)',
                 filename: 'kevin (4).jpg',
                 category: 'abstract',
                 resolution: 'HD',
@@ -113,7 +113,7 @@ class RealWallpaperManager {
             },
             {
                 id: 'kevin-5-jpg',
-                name: 'Kevin Collection 5',
+                name: 'Kevin Collection 5 (JPG)',
                 filename: 'kevin (5).jpg',
                 category: 'nature',
                 resolution: 'HD',
@@ -121,7 +121,7 @@ class RealWallpaperManager {
             },
             {
                 id: 'kevin-6-jpg',
-                name: 'Kevin Collection 6',
+                name: 'Kevin Collection 6 (JPG)',
                 filename: 'kevin (6).jpg',
                 category: 'city',
                 resolution: 'HD',
@@ -174,6 +174,155 @@ class RealWallpaperManager {
                 category: 'nature',
                 resolution: 'HD',
                 description: 'Special nature photography collection'
+            },
+            // Nil series
+            {
+                id: 'nil-1',
+                name: 'Nil Collection 1',
+                filename: 'nil (1).jpg',
+                category: 'abstract',
+                resolution: 'HD',
+                description: 'Artistic composition 1'
+            },
+            {
+                id: 'nil-2',
+                name: 'Nil Collection 2',
+                filename: 'nil (2).jpg',
+                category: 'abstract',
+                resolution: 'HD',
+                description: 'Artistic composition 2'
+            },
+            {
+                id: 'nil-3',
+                name: 'Nil Collection 3',
+                filename: 'nil (3).jpg',
+                category: 'abstract',
+                resolution: 'HD',
+                description: 'Artistic composition 3'
+            },
+            {
+                id: 'nil',
+                name: 'Nil Special',
+                filename: 'nil.jpg',
+                category: 'abstract',
+                resolution: 'HD',
+                description: 'Special artistic piece'
+            },
+            // Download series
+            {
+                id: 'download-15',
+                name: 'Download Collection 15',
+                filename: 'download (15).jpg',
+                category: 'nature',
+                resolution: 'HD',
+                description: 'Nature wallpaper'
+            },
+            {
+                id: 'download-16',
+                name: 'Download Collection 16',
+                filename: 'download (16).jpg',
+                category: 'city',
+                resolution: 'HD',
+                description: 'Urban wallpaper'
+            },
+            {
+                id: 'download-17',
+                name: 'Download Collection 17',
+                filename: 'download (17).jpg',
+                category: 'abstract',
+                resolution: 'HD',
+                description: 'Abstract wallpaper'
+            },
+            // Killua Zoldick series
+            {
+                id: 'killua-godspeed-1',
+                name: 'Killua Godspeed 1',
+                filename: 'Killua Zoldick Godspeed (1).jpg',
+                category: 'anime',
+                resolution: 'HD',
+                description: 'Killua Zoldick Godspeed form anime wallpaper'
+            },
+            {
+                id: 'killua-godspeed',
+                name: 'Killua Godspeed',
+                filename: 'Killua Zoldick Godspeed.jpg',
+                category: 'anime',
+                resolution: 'HD',
+                description: 'Killua Zoldick Godspeed form wallpaper'
+            },
+            // Luffy One Piece series
+            {
+                id: 'luffy-smoke-1',
+                name: 'Luffy Focused Smoke 1',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (1).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-2',
+                name: 'Luffy Focused Smoke 2',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (2).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-3',
+                name: 'Luffy Focused Smoke 3',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (3).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-4',
+                name: 'Luffy Focused Smoke 4',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (4).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-5',
+                name: 'Luffy Focused Smoke 5',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (5).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-6',
+                name: 'Luffy Focused Smoke 6',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (6).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke-7',
+                name: 'Luffy Focused Smoke 7',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece (7).jpg',
+                category: 'anime',
+                resolution: '4K',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            {
+                id: 'luffy-smoke',
+                name: 'Luffy Focused Smoke',
+                filename: 'Luffy Focused with Colors Flowing Like Smoke – One Piece.jpg',
+                category: 'anime',
+                resolution: 'HD',
+                description: 'Luffy with colors flowing like smoke wallpaper'
+            },
+            // Deep forest
+            {
+                id: 'deep-forest',
+                name: 'Deep Forest',
+                filename: 'deep-forest.png',
+                category: 'nature',
+                resolution: 'HD',
+                description: 'Beautiful deep forest scenery'
             }
         ];
         this.init();
@@ -233,7 +382,8 @@ class RealWallpaperManager {
             'nature': '🌿',
             'city': '🏙️',
             'abstract': '🎨',
-            'cars': '🚗'
+            'cars': '🚗',
+            'anime': '🎌'
         };
         return emojis[category] || '🖼️';
     }
@@ -288,18 +438,17 @@ class RealWallpaperManager {
             return;
         }
 
-        // For local files, open in new tab instead of downloading
-        // This works better with browser security restrictions
+        // Create a link element for download
         const link = document.createElement('a');
         link.href = wallpaper.filename;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
+        link.download = wallpaper.filename;
+        link.style.display = 'none';
         
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         
-        this.showDownloadMessage(`Opened: ${wallpaper.name} - Right-click to save image`);
+        this.showDownloadMessage(`✓ Downloading: ${wallpaper.name}`);
     }
 
     showDownloadMessage(message) {
@@ -353,3 +502,30 @@ class RealWallpaperManager {
 
 // Initialize the real wallpaper manager
 const realWallpaperManager = new RealWallpaperManager();
+
+// Add smooth scroll animation for notifications
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
